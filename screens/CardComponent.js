@@ -4,6 +4,9 @@ import { StyleSheet, Text, View,Image, ScrollView } from 'react-native';
 import {card,cardItem,Thumbnail,Body,Left,Right,Button,Icon, CardItem} from 'native-base';
 
 export default class CardComponent extends Component {
+  // static navigationOptions ={
+  //   title="Home",
+  // }
 
   
   render(){

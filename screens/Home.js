@@ -1,35 +1,27 @@
 import React,{Component} from 'react';
 import { StyleSheet, Text, View,style,Platform } from 'react-native';
-import {Icon } from 'native-base';
+import {Icon, Button } from 'native-base';
 import HomeTab from './AppTabNavigator/HomeTab';
 import SummaryTab from './AppTabNavigator/SummaryTab';
 import ReportsTab from './AppTabNavigator/ReportsTab';
 import RemindersTab from './AppTabNavigator/RemindersTab';
+// import CardComponent from './CardComponent';
 import {createBottomTabNavigator, createAppContainer} from 'react-navigation';
 
 class HomeScreen extends Component {
-// static defaultNavigationOptions = {
-//   headerLeft:<Icon name="arrow-back"/>,
-//   headerTintColor:'#c1c1c1',
-//   title:"HOME",
-//   headerRight:<Icon style={{paddingRight:20}} name="ios-search"/>,
-//   headerStyle:{
-//       backgroundColor:"#BA2F16"
-//     },
-//   }
 
   render(){
     return (
       <View style={styles.container}>
         <View >
-          <Text>HomeScreen</Text>
+          <Button title="Hioooo"></Button>
           </View>
       </View>
     );
   }
  }
 
-const TabNavigator = createBottomTabNavigator({
+const HomeTabNavigator = createBottomTabNavigator({
 Home:{
     screen:HomeTab
 },
@@ -43,6 +35,13 @@ Reminders:{
     screen:RemindersTab
 }
 },{
+
+  navigationOptions:({navigation})=>{
+    const {routeName} = navigation.state.routes[navigation.state.index]
+    return {
+      headerTitle: routeName
+    }
+  },
   animationEnabled:true,
   swipeEnabled:true,
   tabBarPosition:"bottom",
@@ -58,7 +57,7 @@ Reminders:{
     inactiveTintColor:'#7B8788'
   }
 });
-export default createAppContainer(TabNavigator);
+export default createAppContainer(HomeTabNavigator);
 
 
 const styles = StyleSheet.create({
